@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: selcukusta/swarm-stack-app:1.0.0
+    hostname: "{{.Service.Name}}-{{.Task.Slot}}"
+    ports:
+      - "8000:8000"
+    deploy:
+        replicas: 3
+  workshop_redis:
+    image: redis:alpine
